@@ -43,7 +43,7 @@ module AutoCompleteJquery
         @items = object_constant.find(:all, find_options)
 
         if block_given?
-          content = yield(@items, params)
+          content = yield(@items, self)
         else
           content = @items.map{|item| "#{item.send(method)}|#{item.send(object_constant.primary_key)}"}.join("\n")
         end
